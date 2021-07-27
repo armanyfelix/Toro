@@ -1,28 +1,28 @@
 import { Link } from 'react-router-dom';
-import './Styles.css';
+import '../Styles.css';
 
 
 function Navbar({click}) {
     return (
-        <nav className="flex justify-between text-white shadow-lg flex-wrap bg-teal-500 p-4">
+        <nav className="flex justify-between text-white shadow-lg bg-gray-700 bg-teal-500 p-4">
             <div className="flex text-white mr-6">
                 <a href="/"  className=" lg:ml-20 sm:text-2xl text-lg font-mate uppercase ">Omar Villatoro</a>
             </div>
            
             <div className="links flex text-lg font-mate italic mr-20 w-auto text-gray-300">
-                <Link to="/" className=" mt-4 lg:inline-block font-mate lg:mt-0 text-teal-200 hover:text-white  mr-4">
+                <Link to="/" className="inline-block text-teal-200 hover:text-white  mr-4">
                     Home
                 </Link>
-                <Link to="/Gallery" className=" mt-4 lg:inline-block font-mate lg:mt-0 text-teal-200 hover:text-white  mr-4">
+                <Link to="/Gallery" className="inline-block text-teal-200 hover:text-white  mr-4">
                     Gallery
                 </Link>
-                <Link to="/Store" className=" mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <Link to="/Store" className="inline-block text-teal-200 hover:text-white mr-4">
                     Store
                 </Link>
-                <Link to="/About" className=" mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <Link to="/About" className="inline-block text-teal-200 hover:text-white mr-4">
                     About
                 </Link>
-                <Link to="/Contact" className=" mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <Link to="/Contact" className="inline-block text-teal-200 hover:text-white mr-4">
                     Contact
                 </Link>
             </div>

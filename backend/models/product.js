@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const cuadroSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -24,6 +24,6 @@ const cuadroSchema = new mongoose.Schema({
     }
 });
 
-const cuadro = mongoose.model('cuadro', cuadroSchema);
+const product = mongoose.model('product', productSchema);
 
-module.exports = cuadro;
+module.exports = product;

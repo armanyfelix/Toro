@@ -1,7 +1,7 @@
 function Contact() {
     return (
-        <section className=" flex py-2 justify-center flex-wrap mx-auto mb-16">
-            <form id="contact"  className="mt-28 flex-wrap mx-auto">
+        <section id="contact" className=" flex py-2 justify-center flex-wrap mx-auto mb-16">
+            <form className="mt-28 flex-wrap mx-auto">
                 <div className="form-group row">
                     <div className="flex mt-3 ">
                         <input type="text" id="name" className="rounded-sm p-2 w-80 " placeholder="Nombre" required />

@@ -1,12 +1,12 @@
-import About from "../components/About";
-import Contact from "../components/Contact";
+
+import MyCarousel from '../components/Carousel';
 
 
 
 function Home() {
     return (
-        <div>
-            
+        <div className="bg-gray-800">
+            <MyCarousel className=" mx-auto justify-center items-center " />
             <section className="w-full  text-center bg-gray-400 mt-20 p-28">
                 <div>
                     <div>
@@ -14,10 +14,8 @@ function Home() {
                     </div>
                 </div>
             </section>
-            <Contact/>
-            <About/>
         </div>
     )
 }
 
-export default Home
+export default Home;

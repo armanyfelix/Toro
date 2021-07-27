@@ -1,4 +1,4 @@
-const cuadros = [
+const products = [
     {
         name: 'Cholo Filosofo',
         imageUrl: '/img/cholofilosofoo.jpg',
@@ -85,4 +85,4 @@ const cuadros = [
     },
 ];
 
-module.exports = cuadros;
+module.exports = products;

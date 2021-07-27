@@ -6,36 +6,41 @@ import Home from './screens/Home';
 import Gallery from './screens/Gallery';
 import Store from './screens/Store';
 import Cart from './screens/Cart';
-import Backdrop from './components/backdrop';
+import About from './screens/About';
+import Contact from './screens/Contact';
+
 
 // Components
 import Navbar from './components/Navbar';
 import Drawer from './components/drawer';
-import Cuadro from './components/Cuadro';
+import Product from './screens/ProductScreen';
 import Footer from './components/Footer';
-// import MyCarousel from './components/Carousel';
 
+import Backdrop from './components/backdrop';
 
-function App() {
+const App = () => {
 
   const [sideToggle, setSideToggle] = useState(false);
+ 
 
   return (
     <Router>
         <Navbar click={() => setSideToggle(true)}/>
         <Drawer show={sideToggle} click={() => setSideToggle(false)} />
         <Backdrop show={sideToggle} click={() => setSideToggle(false)}/>
-        {/* <MyCarousel /> */}
-        <Footer/>
         <main>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/Gallery" component={Gallery} />
             <Route exact path="/Store" component={Store}/>
-            <Route exact path="/cuadro/:id" component={Cuadro}/>
+            <Route exact path="/About" component={About} />
+            <Route exact path="/Contact" component={Contact} />
+            <Route exact path="/product/:id" component={Product}/>
             <Route exact path="/cart" component={Cart} />
+  
           </Switch>
         </main>
+        <Footer/>
     </Router>
   );
 }
