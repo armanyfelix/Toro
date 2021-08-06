@@ -38,15 +38,15 @@ function CartScreen() {
 
     return (
       <>  
-        <div className="md:flex justify-center ">
-            <div className="sm:m-8 ">
-                <h2 className="text-3xl font-bold italic">Shopping Cart</h2>
+        <div className="md:flex justify-center mx-auto w-full ">
+            <div className="sm:m-8  ">
+                <h2 className="text-3xl mb-8 font-bold italic">Shopping Cart</h2>
                 {cartItems.length === 0 ? (
                     <div className="mt-10 mb-10">
                     Your Cart Is Empty <Link to="/Shop" className="text-blue-800 hover:text-blue-500 ">Go Back</Link>
                     </div>
                 ) : (
-                    cartItems.map((item) => (
+                    cartItems.map((item) => (   
                         <CartItem
                           key={item.product}
                           item={item}
@@ -56,16 +56,17 @@ function CartScreen() {
                   ))
                 )}
             </div>
-            <div className=" m-8 border-4 border-b-0  text-center ">
-                <div className=" px-20">
+            <div className=" m-8  text-center mb-64">
+                <div className="border-4  px-20">
                     <p className="p-4">Subtotal ({getCartCount()}) items:</p>
                     <p className="font-bold mb-4 ">${getCartSubTotal()}</p>
                 </div>
-                <div className="border-t-4 border-b-4">
+                <div className="border-4 border-t-0">
                     <button className="bg-gray-600 p-2 m-8 rounded-sm text-white hover:bg-gray-800">
-                        <span>Proceed to Checkout</span>
+                        Proceed to Checkout
                     </button>
-                </div>
+                   
+                </div>    
             </div>
         </div>
       </>

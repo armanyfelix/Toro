@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {
 
     return (
-        <div className=" mt-10 border-2 rounded-md text-sm sm:text-base">
+        <div className="m-1 border-2 rounded-md text-sm sm:text-base">
             <div className=" p-1 xl:gap-36 grid grid-cols-5 rounded-md bg-gray-300 place-items-center ">
                 <div className="p-1">
                     <img src={item.imageUrl} alt={item.name} />

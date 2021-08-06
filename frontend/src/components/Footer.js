@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function Footer() {
     return (
-        <div className="sm:flex h-36 p-4 mx-auto w-full text-gray-300 bg-gray-900 ">
+        <div className="sm:flex h-40 p-4 mx-auto text-gray-300 bg-gray-900 ">
              <div className="flex-1">
-                 <div className="space-x-8 text-left">
+                 <div className="sm:space-x-8 space-x-2 text-left">
                      <Link to="/">
                         Home
                      </Link>

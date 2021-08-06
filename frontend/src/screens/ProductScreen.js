@@ -26,7 +26,7 @@ function ProductScreen({ match, history }) {
     };
 
     return (
-        <section className="productscreen max-w-7xl m-4 flex mx-auto ">
+        <section className="productscreen max-w-7xl m-4 mb-56  flex mx-auto ">
             {loading ? (<div className="spinner">
                 <div className="cube1"></div>
                 <div className="cube2"></div>
@@ -58,7 +58,7 @@ function ProductScreen({ match, history }) {
                                     </select>
                                 </div> */}
                                 <div className="p-6 px-10 border-b-2 border-gray-800 mb-6 justif">
-                                    Qty 
+                                    Qty
                                     <select value={qty} onChange={(e) => setQty(e.target.value)}>
                                         {[...Array(product.countInStock).keys()].map((x) => (
                                             <option key={x + 1} value={x + 1}>

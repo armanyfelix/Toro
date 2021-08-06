@@ -31,18 +31,23 @@ function Store() {
 
     return (
         <div className="bg-gray-300">
-            <div className="flex lg:mr-20 justify-center items-center ">
-                <Link to="/cart" className="bg-gray-700 hover:bg-gray-900 p-2 flex  ">
-                    <i className="fas fa-shopping-cart mt-1"> </i>
-                    <span className=" items-center ml-2 mr-2">
-                        Cart
-                    </span>
-                    <span className="bg-white text-black w-5 h-5 text-sm rounded-full 
+            <div className="flex justify-between bg-white">
+                <p className="text-lg p-4 font-mate text-gray-700font-bold text-">If you are interested in purchasing an NFT visit <a href="https://opensea.io/" className="text-blue-900 hover:text-gray-300">OpenSea for more information</a></p>
+                <div className="flex  lg:mr-20 items-center ">
+                    <Link to="/cart" className=" hover:bg-gray-500 rounded-sm p-2 flex  ">
+                        <i className="fas fa-shopping-cart mt-1"> </i>
+                        <span className=" items-center ml-2 mr-2">
+                            Cart
+                        </span>
+                        <span className="bg-gray-900 text-white w-5 h-5 text-sm rounded-full 
                         align-top flex justify-center items-center mt-1 cursor-pointer">
-                        {getCartCount()}</span>
-                </Link>
+                            {getCartCount()}</span>
+                    </Link>
+                </div>
             </div>
-            <div className="product w-full grid grid-cols-4 pt-16">
+
+
+            <div className="product w-full grid grid-cols-4 pt-10">
                 {loading ? (
                     <div className="spinner">
                         <div className="cube1"></div>

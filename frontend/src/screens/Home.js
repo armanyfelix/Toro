@@ -1,20 +1,23 @@
-
 import MyCarousel from '../components/Carousel';
+import { Link } from 'react-router-dom';
 
 
 
 function Home() {
     return (
-        <div className="bg-gray-800">
-            <MyCarousel className=" mx-auto justify-center items-center " />
+        <section className="bg-gray-800">
+            <MyCarousel className=" mx-auto justify-center items-center" />
             <section className="w-full  text-center bg-gray-400 mt-20 p-28">
                 <div>
                     <div>
-                        <a href="#ProductList" className="text-gray-500  hover:text-blue-300">Ir a la tienda ---- </a>
+                    If you want a physical copy of the author's works
+                    </div>
+                    <div className="mt-4">
+                        <Link to="/Shop" className="text-gray-600   hover:text-gray-300">Visit the Store  </Link>
                     </div>
                 </div>
             </section>
-        </div>
+        </section>
     )
 }
 

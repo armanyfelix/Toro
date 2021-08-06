@@ -6,7 +6,6 @@ module.exports = {
       mate: ['Mate'],
      },
     extend: {
-
     }
   },
   variants: {
