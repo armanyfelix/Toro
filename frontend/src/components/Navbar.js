@@ -16,7 +16,7 @@ function Navbar({click}) {
                 <Link to="/Gallery" className="inline-block text-teal-200 hover:text-white  mr-4">
                     Gallery
                 </Link>
-                <Link to="/Store" className="inline-block text-teal-200 hover:text-white mr-4">
+                <Link to="/Shop" className="inline-block text-teal-200 hover:text-white mr-4">
                     Store
                 </Link>
                 <Link to="/About" className="inline-block text-teal-200 hover:text-white mr-4">

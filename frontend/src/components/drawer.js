@@ -24,7 +24,7 @@ function Drawer({show, click}) {
                     </Link>
                 </li >
                 <li className="mb-5">
-                    <Link to="/Store" className="">
+                    <Link to="/Shop" className="">
                         Store
                     </Link>
                 </li>

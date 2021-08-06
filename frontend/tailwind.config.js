@@ -6,9 +6,7 @@ module.exports = {
       mate: ['Mate'],
      },
     extend: {
-      gridAutoColums: {
-        'cart': '1fr 4fr 1fr 1fr 1fr',
-      }
+
     }
   },
   variants: {

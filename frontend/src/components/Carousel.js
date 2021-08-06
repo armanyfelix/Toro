@@ -32,7 +32,7 @@ function MyCarousel() {
                 <p className="legend">Legend 3</p>
             </div>
             <div>
-                <img src={'./img/libertécrt.jpg'} alt=" " />
+                <img src={'./img/libertecrt.jpg'} alt=" " />
                 <p className="legend">Legend 3</p>
             </div>
             <div>
