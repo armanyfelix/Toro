@@ -4,48 +4,46 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 
 
-
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(4000, () => console.log("Server Running"));
+app.listen(4000, () => console.log("contact server running"));
 
 
-const contactEmail = nodemailer.createTransport({
-    service: 'gmail',
+const transporter = nodemailer.createTransport({
+    service: "gmail",
     auth: {
-        user: 'luis.armany.felix@gmail.com',
-        pass: '2fTjy2zcHSyGfC',
+        user: "luis.armany.felix@gmail.com",
+        pass: "2fTjy2zcHSyGfC",
     },
 });
 
-contactEmail.verify((error) => {
+transporter.verify((error) => {
     if (error) {
         console.log(error);
     } else {
-        console.log('Ready to Send');
+        console.log("Ready to Send");
     }
 });
 
-
-router.post('/contact', (req, res) => {
+router.post("/contact", (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const message = req.body.message;
     const mail = {
         from: name,
-        to: 'luis.armany.felix@gmail.com',
-        subject: 'Contact Form Submission',
+        to: "ubryeutro@gmail.com",
+        subject: "Enviado desde el sitio web",
         html: `<p>Name: ${name}</p>
-               <p>email: ${email}</p>
-               <p>Message: ${message}</p>`,
+        <p>Email: ${email}</p>
+        <p>Message: ${message}</p>`,
     };
-    contactEmail.sendEmail(mail, (error) => {
+    transporter.sendMail(mail, (error) => {
         if (error) {
             res.json({ status: "ERROR" });
-          } else {
-            res.json({ status: "Message Sent" });
-          }
+        } else {
+            res.json({ status: "Message sent" });
+        }
     });
 });

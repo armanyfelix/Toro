@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
+    "server": "nodemon backend/server.js ",
+    "contact": "nodemon backend/contactServer.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run contact\"",
     "data:import": "node backend/seeder.js"
   },
   "keywords": [],

@@ -15,7 +15,7 @@ function Contact() {
         let response = await fetch("http://localhost:4000/contact", {
             method: "POST",
             headers: {
-              "Content-Type": "application/json;charset=utf-8",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(details),
           });
@@ -53,8 +53,8 @@ function Contact() {
             </form>
 
             <div className="mt-36 p-3  mx-auto ">
-                <a href="https://www.instagram.com/lemilitaire6/" className="hover:bg-gray-500  pb-5 p-4 rounded-md">
-                    <img src="./img/instaLogo.png" alt="intagram" className="inline-flex   w-10 "/>
+                <a href="https://www.instagram.com/lemilitaire6/" className="hover:bg-gray-700  pb-5 p-4 rounded-md">
+                    <img src="/img/instaLogo.png" alt="intagram" className="inline-flex   w-10 "/>
                     <label className="inline-flex font-semibold text-white">lemilitaire6</label>
                 </a>
             </div>
