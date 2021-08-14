@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
@@ -8,14 +9,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(4000, () => console.log("contact server running"));
+
+const PORT = process.env.CONTACT_PORT || 4000;
+
+app.listen(PORT, () => console.log("contact server running"));
 
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "luis.armany.felix@gmail.com",
-        pass: "2fTjy2zcHSyGfC",
+        user: process.env.USER_GMAIL,
+        pass: process.env.PASSWORD_GMAIL,
     },
 });
 
@@ -33,7 +37,7 @@ router.post("/contact", (req, res) => {
     const message = req.body.message;
     const mail = {
         from: name,
-        to: "ubryeutro@gmail.com",
+        to: process.env.SEND_EMAIL_TO,
         subject: "Enviado desde el sitio web",
         html: `<p>Name: ${name}</p>
         <p>Email: ${email}</p>
