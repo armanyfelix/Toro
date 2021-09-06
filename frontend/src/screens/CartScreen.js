@@ -62,7 +62,7 @@ function CartScreen() {
             <p className="font-bold mb-4 ">${getCartSubTotal()}</p>
           </div>
           <div className="border-4 border-t-0">
-            <button className="bg-gray-600 p-2 m-8 rounded-sm text-white hover:bg-gray-800">
+            <button className="bg-gray-600 p-2 m-8 rounded text-white hover:bg-gray-800">
               <Link to="/Checkout">
                 Proceed to Checkout
               </Link>

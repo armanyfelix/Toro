@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import '../Styles.css';
 
 
-function Navbar({click}) {
+function Navbar({ click }) {
+
     return (
         <nav className="flex justify-between text-white shadow-lg bg-gray-700 bg-teal-500 p-4">
             <div className="flex text-white mr-6">
-                <a href="/"  className=" lg:ml-20 sm:text-2xl text-lg font-mate uppercase ">Omar Villatoro</a>
+                <a href="/" className=" lg:ml-20 sm:text-2xl text-lg font-mate uppercase ">Omar Villatoro</a>
             </div>
-           
             <div className="links flex text-lg font-mate italic mr-20 w-auto text-gray-300">
                 <Link to="/" className="inline-block text-teal-200 hover:text-white  mr-4">
                     Home
@@ -26,7 +26,6 @@ function Navbar({click}) {
                     Contact
                 </Link>
             </div>
-    
             <button className="flex items-center hover:bg-gray-900 px-3 py-2 m border rounded text-teal-200 lg:hidden border-teal-40"
                 onClick={click} >
                 <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

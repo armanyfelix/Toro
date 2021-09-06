@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -28,11 +27,10 @@ function Store() {
         dispatch(listProducts());
     }, [dispatch]);
 
-
     return (
         <div className="bg-gray-300">
             <div className="flex justify-between bg-white">
-                <p className="text-lg p-4 font-mate text-gray-700font-bold text-">If you are interested in purchasing an NFT visit <a href="https://opensea.io/" className="text-blue-900 hover:text-gray-300">OpenSea for more information</a></p>
+                <p className="text-lg p-4 font-mate text-gray-700font-bold text-">If you are interested in purchasing an NFT visit <a href="https://opensea.io/" className="text-blue-900 hover:text-gray-300">OpenSea </a>for more information</p>
                 <div className="flex  lg:mr-20 items-center ">
                     <Link to="/cart" className=" hover:bg-gray-500 rounded-sm p-2 flex  ">
                         <i className="fas fa-shopping-cart mt-1"> </i>

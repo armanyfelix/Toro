@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js ",
-    "contact": "nodemon backend/contactServer.js",
+    "contact": "nodemon backend/contact.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run contact\"",
     "data:import": "node backend/seeder.js"
@@ -20,7 +20,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.13.3",
-    "nodemailer": "^6.6.3"
+    "nodemailer": "^6.6.3",
+    "stripe": "^8.171.0"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",

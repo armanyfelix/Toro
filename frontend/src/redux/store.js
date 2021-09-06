@@ -5,12 +5,14 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 // Reducers
 import { cartReducer } from './reducers/cartReducers';
 import { getProductsReducer, getProductDetailsReducer } from './reducers/productReducers';
+import { shippingReducer } from "./reducers/shippingReducer";
 
 
-const reducer = combineReducers({
+const reducers = combineReducers({
     cart: cartReducer,
     getProducts: getProductsReducer,
     getProductDetails: getProductDetailsReducer,
+    address: shippingReducer, 
 });
 
 const middleware = [thunk];
@@ -19,14 +21,14 @@ const cartItemsInLocalStorage = localStorage.getItem("cart")
  ? JSON.parse(localStorage.getItem("cart"))
  : [];
 
- const INITIAL_STATE = {
+const INITIAL_STATE = {
      cart: {
          cartItems: cartItemsInLocalStorage,
      },
  };
 
 const store = createStore(
-    reducer,
+    reducers,
     INITIAL_STATE,
     composeWithDevTools(applyMiddleware(...middleware))
 );

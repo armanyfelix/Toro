@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require("express");
-const router = express.Router();
+const contactRoutes = express.Router();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 
@@ -8,9 +8,9 @@ const nodemailer = require("nodemailer");
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/", router);
+app.use("/api/contact", contactRoutes);
 
-const PORT = process.env.CONTACT_PORT || 4000;
+const PORT = process.env.CONTACT_PORT || 3002;
 
 app.listen(PORT, () => console.log("contact server running"));
 
@@ -27,11 +27,11 @@ transporter.verify((error) => {
     if (error) {
         console.log(error);
     } else {
-        console.log("Ready to Send");
+   //     console.log("Ready to Send");
     }
 });
 
-router.post("/contact", (req, res) => {
+contactRoutes.post("/contact", (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const message = req.body.message;

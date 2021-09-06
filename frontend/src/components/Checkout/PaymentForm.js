@@ -1,74 +1,76 @@
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import { useForm, Controller } from "react-hook-form";
+import Button from '@material-ui/core/Button';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import Review from './Review';
+import axios from 'axios';
 
-export default function PaymentForm() {
+const stripePromise = loadStripe("pk_test_51JQ4PnII8BayBJ3bFpVAttsYF0gZn4eBDDuRYVx59DCPr3XS1rajz0949bB139iyeCT74cli3bC1gCXYfgZC7kzZ00Vm0WbIGJ")
 
-  const { handlerPayment, control } = useForm();
+const CARD_ELEMENT_OPTIONS = {
+  iconStyle: "solid",
+  hidePostalCode: true,
+  style: {
+    base: {
+      iconColor: "rgb(240, 57, 122)",
+      color: "#333",
+      fontSize: "18px",
+      "::placeholder": {
+        color: "#ccc",
+      },
+    },
+    invalid: {
+      color: "#e5424d",
+      ":focus": {
+        color: "#303238",
+      },
+    },
+  },
+};
 
-  const onSubmit = data => {
-    console.log(data);
+const CheckoutForm = ({ handleNext, handleBack, getCartSubTotal }) => {
+
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const {error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement)
+    })
+    if (!error) {
+      const { id } = paymentMethod;
+      await axios.post("http://localhost:3001/api/checkout", {
+        id,
+        amount: getCartSubTotal() * 100,
+      })
+    }
   }
 
   return (
+    <form onSubmit={handleSubmit}>
+      <CardElement options={CARD_ELEMENT_OPTIONS} />
+      <div className="text-right mt-10 -mb-3.5 ">
+        <Button variant="outlined" style={{margin: '10px'}} onClick={handleBack}>Back</Button>
+        <Button disable={true} type="submit" onClick={handleNext} variant="contained" color="primary">Pay</Button>
+      </div>
+    </form>
+  )
+}
+
+function PaymentForm({ handleNext, handleBack }) {
+  return (
     <>
+      <Review/>
       <Typography variant="h6" gutterBottom>
         Payment method
       </Typography>
-      <form onsubmit={handlerPayment(onSubmit)}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
-            <Controller
-              name="firstName"
-              control={control}
-              defaultValue="false"
-              render={({ field: { onChange, value }, fieldState: { error } }) => (
-                <TextField
-                  label="Name on card"
-                  fullWidth
-                  autoComplete="cc-name"
-                  value={value}
-                  onChange={onChange}
-                  error={!!error}
-                  helperText={error ? error.message : null}
-                />
-              )}
-              rules={{ required: 'first name required' }}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <TextField
-              required
-              id="cardNumber"
-              label="Card number"
-              fullWidth
-              autoComplete="cc-number"
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <TextField required id="expDate" label="Expiry date" fullWidth autoComplete="cc-exp" />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <TextField
-              required
-              id="cvv"
-              label="CVV"
-              helperText="Last three digits on signature strip"
-              fullWidth
-              autoComplete="cc-csc"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <FormControlLabel
-              control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-              label="Remember credit card details for next time"
-            />
-          </Grid>
-        </Grid>
-      </form>
+      <Elements handleNext={handleNext} handleBack={handleBack} stripe={stripePromise}>
+        <CheckoutForm />
+      </Elements>
     </>
   );
 }
+
+export default PaymentForm;

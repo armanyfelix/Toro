@@ -31,7 +31,7 @@ const App = () => {
         <Navbar click={() => setSideToggle(true)}/>
         <Drawer show={sideToggle} click={() => setSideToggle(false)} />
         <Backdrop show={sideToggle} click={() => setSideToggle(false)}/>
-        <main className="app">
+        <main>
           <Switch>
             <Route exact path="/" component={props => <Home {...props} />} />
             <Route exact path="/Gallery" component={props => <Gallery {...props} />} />
